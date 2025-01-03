@@ -94,6 +94,11 @@ class _MainScreenStateState extends State<MainScreenState> {
         index: selectedBottomNavigationItem,
         children: getLayout(),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
@@ -239,7 +244,7 @@ Widget wareHouseMenu() {
             style: TextStyle(fontSize: 45),
           ),
         ),
-      )
+      ),
     ],
   );
 }

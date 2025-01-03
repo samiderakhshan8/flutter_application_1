@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class shareBottomSheet extends StatelessWidget {
@@ -6,15 +8,15 @@ class shareBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.only(
+      borderRadius: const BorderRadius.only(
         topLeft: Radius.circular(20),
         topRight: Radius.circular(20),
       ),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 40.0, sigmaY: 40.0),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 40),
-          color: Color.fromRGBO(255, 255, 255, 0.3),
+          padding: const EdgeInsets.symmetric(horizontal: 40),
+          color: const Color.fromRGBO(255, 255, 255, 0.3),
           child: _getContent(context),
         ),
       ),
@@ -34,11 +36,11 @@ class shareBottomSheet extends StatelessWidget {
                   Container(
                     height: 5,
                     width: 65,
-                    margin: EdgeInsets.only(
+                    margin: const EdgeInsets.only(
                       top: 10,
                       bottom: 22,
                     ),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.all(
                         Radius.circular(100),
@@ -48,7 +50,7 @@ class shareBottomSheet extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Share',
                         style: TextStyle(
                           fontFamily: 'GB',
@@ -61,26 +63,26 @@ class shareBottomSheet extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 32,
                   ),
                   Container(
                     height: 46,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(13),
                       ),
                       color: Color.fromRGBO(255, 255, 255, 0.4),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Row(
                         children: [
                           Image.asset('images/icon_search.png'),
-                          SizedBox(
+                          const SizedBox(
                             width: 8,
                           ),
-                          Expanded(
+                          const Expanded(
                             child: TextField(
                               decoration: InputDecoration(
                                 hintText: 'Search User',
@@ -93,7 +95,7 @@ class shareBottomSheet extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 32,
                   ),
                 ],
@@ -101,15 +103,15 @@ class shareBottomSheet extends StatelessWidget {
             ),
             SliverGrid(
               delegate: SliverChildBuilderDelegate((context, index) {
-                return _getItemGrid();
+                return const Text('samii');
               }, childCount: 30),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
                   crossAxisSpacing: 20,
                   mainAxisSpacing: 20,
                   mainAxisExtent: 110),
             ),
-            SliverPadding(
+            const SliverPadding(
               padding: EdgeInsets.only(top: 120),
             ),
           ],
@@ -118,7 +120,7 @@ class shareBottomSheet extends StatelessWidget {
           bottom: 47,
           child: ElevatedButton(
             onPressed: () {},
-            child: Padding(
+            child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 45, vertical: 13),
               child: Text(
                 'Share',
@@ -130,34 +132,6 @@ class shareBottomSheet extends StatelessWidget {
             ),
           ),
         ),
-      ],
-    );
-  }
-
-  Widget _getItemGrid() {
-    return Column(
-      children: [
-        Container(
-          width: 60,
-          height: 60,
-          child: ClipRRect(
-            borderRadius: BorderRadius.all(
-              Radius.circular(15),
-            ),
-            child: Image.asset('images/profile1.png'),
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          'Javad Derakhshan',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 11,
-            color: Colors.white,
-          ),
-        )
       ],
     );
   }
